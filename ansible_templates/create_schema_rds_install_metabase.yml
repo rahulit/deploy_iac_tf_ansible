@@ -1,0 +1,38 @@
+- name: Create schema and tables in RDS
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "viadb"
+    login_user: "viauser"
+    login_password: "viapassword#321"
+    state: present
+
+- name: Install Metabase on EC2 machine
+  become: yes
+  package:
+    name: metabase
+
+- name: Configure Metabase to connect to RDS
+  become: yes
+  shell: |
+    echo '{
+      "site-settings": {
+        "db-type": "postgres",
+        "db-port": "5432",
+        "db-user": "viauser",
+        "db-password": "viapassword#321",
+        "db-name": "viadb",
+        "db-host": "RDS_ENDPOINT"
+      }
+    }' > metabase.properties
+    metabase setup
+
+- name: Create user permissions for Metabase
+  become: yes
+  shell: |
+    metabase users create-admin --username USERNAME --password PASSWORD
+
+- name: Final result
+  become: yes
+  shell: |
+    echo "Access Metabase at http://EC2_PUBLIC_IP:3000 with username USERNAME and password PASSWORD"

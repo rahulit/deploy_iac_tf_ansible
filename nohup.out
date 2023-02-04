@@ -1,0 +1,2345 @@
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mReference to undeclared resource[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on dns.tf line 12, in resource "aws_route53_record" "cert_validation":
+[31m│[0m [0m  12:         for val in [4maws_acm_certificate.jenkins-lb-https[0m.domain_validation_options : val.domain_name => {[0m
+[31m│[0m [0m
+[31m│[0m [0mA managed resource "aws_acm_certificate" "jenkins-lb-https" has not been
+[31m│[0m [0mdeclared in the root module.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mMissing required argument[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on dns.tf line 26, in resource "aws_route53_record" "jenkins":
+[31m│[0m [0m  26: resource "aws_route53_record" "jenkins" [4m{[0m[0m
+[31m│[0m [0m
+[31m│[0m [0mThe argument "zone_id" is required, but no definition was found.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mUnsupported argument[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on dns.tf line 28, in resource "aws_route53_record" "jenkins":
+[31m│[0m [0m  28:   [4mzone-id[0m  = data.aws_route53_zone.dns.zone_id[0m
+[31m│[0m [0m
+[31m│[0m [0mAn argument named "zone-id" is not expected here. Did you mean "zone_id"?
+[31m╵[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Read complete after 1s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Reading...[0m[0m
+[0m[1mdata.aws_route53_zone.dns: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_availability_zones.azs: Read complete after 0s [id=us-east-1][0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mno matching Route53Zone found[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  with data.aws_route53_zone.dns,
+[31m│[0m [0m  on dns.tf line 3, in data "aws_route53_zone" "dns":
+[31m│[0m [0m   3: data "aws_route53_zone" "dns" [4m{[0m[0m
+[31m│[0m [0m
+[31m╵[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_route53_zone.dns: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_availability_zones.azs: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_route53_zone.dns: Read complete after 1s [id=Z0309285FKX769XC4J5C][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create
+[0m
+Terraform will perform the following actions:
+
+[1m  # aws_acm_certificate.jenkins-lb-https[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_acm_certificate" "jenkins-lb-https" {
+      [32m+[0m [0m[1m[0marn[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mdomain_name[0m[0m               = "jenkins.cmcloudlab384.info"
+      [32m+[0m [0m[1m[0mdomain_validation_options[0m[0m = [
+          [32m+[0m [0m{
+              [32m+[0m [0mdomain_name           = "jenkins.cmcloudlab384.info"
+              [32m+[0m [0mresource_record_name  = (known after apply)
+              [32m+[0m [0mresource_record_type  = (known after apply)
+              [32m+[0m [0mresource_record_value = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mkey_algorithm[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mnot_after[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mnot_before[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mpending_renewal[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mrenewal_eligibility[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mrenewal_summary[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0msubject_alternative_names[0m[0m = [
+          [32m+[0m [0m"jenkins.cmcloudlab384.info",
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m                      = {
+          [32m+[0m [0m"Name" = "Jenkins-ACM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                  = {
+          [32m+[0m [0m"Name" = "Jenkins-ACM"
+        }
+      [32m+[0m [0m[1m[0mtype[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_emails[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_method[0m[0m         = "DNS"
+    }
+
+[1m  # aws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_acm_certificate_validation" "cert" {
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_record_fqdns[0m[0m = (known after apply)
+    }
+
+[1m  # aws_instance.jenkins-master[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_instance" "jenkins-master" {
+      [32m+[0m [0m[1m[0mami[0m[0m                                  = (sensitive value)
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_core_count[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_stop[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_termination[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mebs_optimized[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mget_password_data[0m[0m                    = false
+      [32m+[0m [0m[1m[0mhost_id[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mhost_resource_group_arn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0miam_instance_profile[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0minstance_state[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0minstance_type[0m[0m                        = "t3.micro"
+      [32m+[0m [0m[1m[0mipv6_address_count[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_addresses[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m                             = "jenkins"
+      [32m+[0m [0m[1m[0mmonitoring[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0moutpost_arn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mpassword_data[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_group[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_partition_number[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_private_ips[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0msource_dest_check[0m[0m                    = true
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "jenkins_master_tf"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "jenkins_master_tf"
+        }
+      [32m+[0m [0m[1m[0mtenancy[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0muser_data[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_base64[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false
+      [32m+[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = (known after apply)
+
+      [32m+[0m [0mcapacity_reservation_specification {
+          [32m+[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = (known after apply)
+
+          [32m+[0m [0mcapacity_reservation_target {
+              [32m+[0m [0m[1m[0mcapacity_reservation_id[0m[0m                 = (known after apply)
+              [32m+[0m [0m[1m[0mcapacity_reservation_resource_group_arn[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mebs_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0msnapshot_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+
+      [32m+[0m [0menclave_options {
+          [32m+[0m [0m[1m[0menabled[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mephemeral_block_device {
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mno_device[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_name[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmaintenance_options {
+          [32m+[0m [0m[1m[0mauto_recovery[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmetadata_options {
+          [32m+[0m [0m[1m[0mhttp_endpoint[0m[0m               = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_tokens[0m[0m                 = (known after apply)
+          [32m+[0m [0m[1m[0minstance_metadata_tags[0m[0m      = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_interface {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_index[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_card_index[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m  = (known after apply)
+        }
+
+      [32m+[0m [0mprivate_dns_name_options {
+          [32m+[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhostname_type[0m[0m                        = (known after apply)
+        }
+
+      [32m+[0m [0mroot_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+    }
+
+[1m  # aws_instance.jenkins-worker-oregon[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_instance" "jenkins-worker-oregon" {
+      [32m+[0m [0m[1m[0mami[0m[0m                                  = (sensitive value)
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_core_count[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_stop[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_termination[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mebs_optimized[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mget_password_data[0m[0m                    = false
+      [32m+[0m [0m[1m[0mhost_id[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mhost_resource_group_arn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0miam_instance_profile[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0minstance_state[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0minstance_type[0m[0m                        = "t3.micro"
+      [32m+[0m [0m[1m[0mipv6_address_count[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_addresses[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m                             = "jenkins"
+      [32m+[0m [0m[1m[0mmonitoring[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0moutpost_arn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mpassword_data[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_group[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_partition_number[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_private_ips[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0msource_dest_check[0m[0m                    = true
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "jenkins_worker_tf_1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "jenkins_worker_tf_1"
+        }
+      [32m+[0m [0m[1m[0mtenancy[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0muser_data[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_base64[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false
+      [32m+[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = (known after apply)
+
+      [32m+[0m [0mcapacity_reservation_specification {
+          [32m+[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = (known after apply)
+
+          [32m+[0m [0mcapacity_reservation_target {
+              [32m+[0m [0m[1m[0mcapacity_reservation_id[0m[0m                 = (known after apply)
+              [32m+[0m [0m[1m[0mcapacity_reservation_resource_group_arn[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mebs_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0msnapshot_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+
+      [32m+[0m [0menclave_options {
+          [32m+[0m [0m[1m[0menabled[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mephemeral_block_device {
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mno_device[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_name[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmaintenance_options {
+          [32m+[0m [0m[1m[0mauto_recovery[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmetadata_options {
+          [32m+[0m [0m[1m[0mhttp_endpoint[0m[0m               = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_tokens[0m[0m                 = (known after apply)
+          [32m+[0m [0m[1m[0minstance_metadata_tags[0m[0m      = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_interface {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_index[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_card_index[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m  = (known after apply)
+        }
+
+      [32m+[0m [0mprivate_dns_name_options {
+          [32m+[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhostname_type[0m[0m                        = (known after apply)
+        }
+
+      [32m+[0m [0mroot_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+    }
+
+[1m  # aws_internet_gateway.igw[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "igw" {
+      [32m+[0m [0m[1m[0marn[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m   = (known after apply)
+    }
+
+[1m  # aws_internet_gateway.igw-oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "igw-oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m   = (known after apply)
+    }
+
+[1m  # aws_key_pair.master-key[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_key_pair" "master-key" {
+      [32m+[0m [0m[1m[0marn[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mfingerprint[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m        = "jenkins"
+      [32m+[0m [0m[1m[0mkey_name_prefix[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mkey_pair_id[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mkey_type[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCy6SEoM7TYTegJ21S2T8kchV2Q6yCYEkY/GfB3bkjaq/VvBEze3DrrT+6MbHwnr17A1xJz2atVHh6id6eJ8awUZ8MFR1XXlIIOLCE/R9Pp1YS88vTgRoVcXHgCpcqPGInJBFS7LWkYWgeYS58nSzP0wCzxIpu5+gSQi07ERv/Hv4A+CXAlxFh572aPw461GTCZere7rfVeWgVoyDti8gvNwCqTnVDIZYme/Ok/sp/ni0QBxl3ArMq3+TZcVl+4ymsHl3kAtLmsvniDgmHfsdW2zEhDMnxptbgWZEb+q3ClXPFBCyKA0rDR/J1lPZYIw8Njsvvb5AhnWGM9pgOHRUc0gSKo9q7mvw20enkl1tsTZT4DvNpLeqjpCDehEEmYb01zTFxO85XJUdYpNJMnfdbLCT0k6goZ3HN70Sb7nPjwcxX5Fw1KNzDIanLpko6PyGgr108fG3n3TMFVDnDoPePPdJvC3lR86mnSnL0kxPLQ9/UQ3eARcl83ucMQ8FWCnHM= wert@DESKTOP-3O7KG9K"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_key_pair.worker-key[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_key_pair" "worker-key" {
+      [32m+[0m [0m[1m[0marn[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mfingerprint[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m        = "jenkins"
+      [32m+[0m [0m[1m[0mkey_name_prefix[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mkey_pair_id[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mkey_type[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCy6SEoM7TYTegJ21S2T8kchV2Q6yCYEkY/GfB3bkjaq/VvBEze3DrrT+6MbHwnr17A1xJz2atVHh6id6eJ8awUZ8MFR1XXlIIOLCE/R9Pp1YS88vTgRoVcXHgCpcqPGInJBFS7LWkYWgeYS58nSzP0wCzxIpu5+gSQi07ERv/Hv4A+CXAlxFh572aPw461GTCZere7rfVeWgVoyDti8gvNwCqTnVDIZYme/Ok/sp/ni0QBxl3ArMq3+TZcVl+4ymsHl3kAtLmsvniDgmHfsdW2zEhDMnxptbgWZEb+q3ClXPFBCyKA0rDR/J1lPZYIw8Njsvvb5AhnWGM9pgOHRUc0gSKo9q7mvw20enkl1tsTZT4DvNpLeqjpCDehEEmYb01zTFxO85XJUdYpNJMnfdbLCT0k6goZ3HN70Sb7nPjwcxX5Fw1KNzDIanLpko6PyGgr108fG3n3TMFVDnDoPePPdJvC3lR86mnSnL0kxPLQ9/UQ3eARcl83ucMQ8FWCnHM= wert@DESKTOP-3O7KG9K"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_lb.application-lb[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb" "application-lb" {
+      [32m+[0m [0m[1m[0marn[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0marn_suffix[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdesync_mitigation_mode[0m[0m     = "defensive"
+      [32m+[0m [0m[1m[0mdns_name[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mdrop_invalid_header_fields[0m[0m = false
+      [32m+[0m [0m[1m[0menable_deletion_protection[0m[0m = false
+      [32m+[0m [0m[1m[0menable_http2[0m[0m               = true
+      [32m+[0m [0m[1m[0menable_waf_fail_open[0m[0m       = false
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0midle_timeout[0m[0m               = 60
+      [32m+[0m [0m[1m[0minternal[0m[0m                   = false
+      [32m+[0m [0m[1m[0mip_address_type[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_type[0m[0m         = "application"
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "jenkins-lb"
+      [32m+[0m [0m[1m[0mpreserve_host_header[0m[0m       = false
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0msubnets[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                       = {
+          [32m+[0m [0m"Name" = "Jenkins-LB"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                   = {
+          [32m+[0m [0m"Name" = "Jenkins-LB"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mzone_id[0m[0m                    = (known after apply)
+
+      [32m+[0m [0msubnet_mapping {
+          [32m+[0m [0m[1m[0mallocation_id[0m[0m        = (known after apply)
+          [32m+[0m [0m[1m[0mipv6_address[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0moutpost_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mprivate_ipv4_address[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0msubnet_id[0m[0m            = (known after apply)
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 443
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTPS"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = "ELBSecurityPolicy-2016-08"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m             = "forward"
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener-http[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener-http" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 80
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTP"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m  = "redirect"
+
+          [32m+[0m [0mredirect {
+              [32m+[0m [0m[1m[0mhost[0m[0m        = "#{host}"
+              [32m+[0m [0m[1m[0mpath[0m[0m        = "/#{path}"
+              [32m+[0m [0m[1m[0mport[0m[0m        = "443"
+              [32m+[0m [0m[1m[0mprotocol[0m[0m    = "HTTPS"
+              [32m+[0m [0m[1m[0mquery[0m[0m       = "#{query}"
+              [32m+[0m [0m[1m[0mstatus_code[0m[0m = "HTTP_301"
+            }
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener-https[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener-https" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 443
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTPS"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = "ELBSecurityPolicy-2016-08"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m             = "forward"
+        }
+    }
+
+[1m  # aws_lb_target_group.app-lb-tg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "app-lb-tg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                = (known after apply)
+      [32m+[0m [0m[1m[0marn_suffix[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mconnection_termination[0m[0m             = false
+      [32m+[0m [0m[1m[0mderegistration_delay[0m[0m               = "300"
+      [32m+[0m [0m[1m[0mid[0m[0m                                 = (known after apply)
+      [32m+[0m [0m[1m[0mip_address_type[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mlambda_multi_value_headers_enabled[0m[0m = false
+      [32m+[0m [0m[1m[0mload_balancing_algorithm_type[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                               = "app-lb-tg"
+      [32m+[0m [0m[1m[0mport[0m[0m                               = 80
+      [32m+[0m [0m[1m[0mpreserve_client_ip[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                           = "HTTP"
+      [32m+[0m [0m[1m[0mprotocol_version[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mproxy_protocol_v2[0m[0m                  = false
+      [32m+[0m [0m[1m[0mslow_start[0m[0m                         = 0
+      [32m+[0m [0m[1m[0mtags[0m[0m                               = {
+          [32m+[0m [0m"Name" = "jenkins-target-group"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                           = {
+          [32m+[0m [0m"Name" = "jenkins-target-group"
+        }
+      [32m+[0m [0m[1m[0mtarget_type[0m[0m                        = "instance"
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                             = (known after apply)
+
+      [32m+[0m [0mhealth_check {
+          [32m+[0m [0m[1m[0menabled[0m[0m             = true
+          [32m+[0m [0m[1m[0mhealthy_threshold[0m[0m   = 3
+          [32m+[0m [0m[1m[0minterval[0m[0m            = 10
+          [32m+[0m [0m[1m[0mmatcher[0m[0m             = "200-299"
+          [32m+[0m [0m[1m[0mpath[0m[0m                = "/"
+          [32m+[0m [0m[1m[0mport[0m[0m                = "80"
+          [32m+[0m [0m[1m[0mprotocol[0m[0m            = "HTTP"
+          [32m+[0m [0m[1m[0mtimeout[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0munhealthy_threshold[0m[0m = 3
+        }
+
+      [32m+[0m [0mstickiness {
+          [32m+[0m [0m[1m[0mcookie_duration[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mcookie_name[0m[0m     = (known after apply)
+          [32m+[0m [0m[1m[0menabled[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m            = (known after apply)
+        }
+
+      [32m+[0m [0mtarget_failover {
+          [32m+[0m [0m[1m[0mon_deregistration[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mon_unhealthy[0m[0m      = (known after apply)
+        }
+    }
+
+[1m  # aws_lb_target_group_attachment.jenkins-master-attach[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "jenkins-master-attach" {
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m             = 80
+      [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtarget_id[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_main_route_table_association.set-master-default-rt-assoc[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_main_route_table_association" "set-master-default-rt-assoc" {
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0moriginal_route_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                  = (known after apply)
+    }
+
+[1m  # aws_main_route_table_association.set-worker-default-rt-assoc[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_main_route_table_association" "set-worker-default-rt-assoc" {
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0moriginal_route_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                  = (known after apply)
+    }
+
+[1m  # aws_route53_record.cert_validation["jenkins.cmcloudlab384.info"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route53_record" "cert_validation" {
+      [32m+[0m [0m[1m[0mallow_overwrite[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mfqdn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mrecords[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mttl[0m[0m             = 60
+      [32m+[0m [0m[1m[0mtype[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mzone_id[0m[0m         = "Z0309285FKX769XC4J5C"
+    }
+
+[1m  # aws_route53_record.jenkins[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route53_record" "jenkins" {
+      [32m+[0m [0m[1m[0mallow_overwrite[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mfqdn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m            = "jenkins.cmcloudlab384.info"
+      [32m+[0m [0m[1m[0mtype[0m[0m            = "A"
+      [32m+[0m [0m[1m[0mzone_id[0m[0m         = "Z0309285FKX769XC4J5C"
+
+      [32m+[0m [0malias {
+          [32m+[0m [0m[1m[0mevaluate_target_health[0m[0m = true
+          [32m+[0m [0m[1m[0mname[0m[0m                   = (known after apply)
+          [32m+[0m [0m[1m[0mzone_id[0m[0m                = (known after apply)
+        }
+    }
+
+[1m  # aws_route_table.internet_route[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "internet_route" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "0.0.0.0/0"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = (known after apply)
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = ""
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "192.168.1.0/24"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = ""
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name" = "Master-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name" = "Master-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # aws_route_table.internet_route_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "internet_route_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "0.0.0.0/0"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = (known after apply)
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = ""
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "10.0.1.0/24"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = ""
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name" = "Worker-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name" = "Worker-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # aws_security_group.jenkins-sg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "jenkins-sg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow TCP/8080 & TCP/22"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 22 from our public IP"
+              [32m+[0m [0mfrom_port        = 22
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 22
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"192.168.1.0/24",
+                ]
+              [32m+[0m [0mdescription      = "allow traffic from us-west-2"
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = []
+              [32m+[0m [0mdescription      = "allow anyone on port 8080"
+              [32m+[0m [0mfrom_port        = 80
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = (known after apply)
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 80
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "jenkins-sg"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_security_group.jenkins-sg-oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "jenkins-sg-oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow TCP/8080 & TCP/22"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 22 from our public IP"
+              [32m+[0m [0mfrom_port        = 22
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 22
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"10.0.1.0/24",
+                ]
+              [32m+[0m [0mdescription      = "Allow traffic from us-east-1"
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "jenkins-sg-oregon"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_security_group.lb-sg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "lb-sg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow 443 and traffic to Jenkins SG"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 443 from anywhere"
+              [32m+[0m [0mfrom_port        = 443
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 443
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 80 from anywhere for redirection"
+              [32m+[0m [0mfrom_port        = 80
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 80
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "lb-sg"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_1[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_1" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1a"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "10.0.1.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_1_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_1_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "192.168.1.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_2[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_2" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1b"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "10.0.2.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_vpc.vpc_master[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc" "vpc_master" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                           = "10.0.0.0/16"
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_security_group_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mdhcp_options_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = true
+      [32m+[0m [0m[1m[0menable_dns_support[0m[0m                   = true
+      [32m+[0m [0m[1m[0menable_network_address_usage_metrics[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default"
+      [32m+[0m [0m[1m[0mipv6_association_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_network_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mmain_route_table_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "master-vpc-jenkins"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "master-vpc-jenkins"
+        }
+    }
+
+[1m  # aws_vpc.vpc_master_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc" "vpc_master_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                           = "192.168.0.0/16"
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_security_group_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mdhcp_options_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = true
+      [32m+[0m [0m[1m[0menable_dns_support[0m[0m                   = true
+      [32m+[0m [0m[1m[0menable_network_address_usage_metrics[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default"
+      [32m+[0m [0m[1m[0mipv6_association_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_network_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mmain_route_table_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "worker-vpc-jenkins"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "worker-vpc-jenkins"
+        }
+    }
+
+[1m  # aws_vpc_peering_connection.useast1-uswest2[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc_peering_connection" "useast1-uswest2" {
+      [32m+[0m [0m[1m[0maccept_status[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_owner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_region[0m[0m   = "us-west-2"
+      [32m+[0m [0m[1m[0mpeer_vpc_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m        = (known after apply)
+
+      [32m+[0m [0maccepter {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mrequester {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # aws_vpc_peering_connection_accepter.accept_peering[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc_peering_connection_accepter" "accept_peering" {
+      [32m+[0m [0m[1m[0maccept_status[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mauto_accept[0m[0m               = true
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_owner_id[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_region[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_vpc_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_peering_connection_id[0m[0m = (known after apply)
+
+      [32m+[0m [0maccepter {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mrequester {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+    }
+
+[0m[1mPlan:[0m 30 to add, 0 to change, 0 to destroy.
+[0m[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mJenkins-Main-Node-Public-IP[0m[0m = (known after apply)
+  [32m+[0m [0m[1m[0mJenkins-Worker-Public-IPs[0m[0m   = (known after apply)
+  [32m+[0m [0m[1m[0mLB-DNS-NAME[0m[0m                 = (known after apply)
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0m[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1merror asking for approval: read /dev/stdin: bad file descriptor[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m
+[31m╵[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Read complete after 1s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Reading...[0m[0m
+[0m[1mdata.aws_route53_zone.dns: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_availability_zones.azs: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_route53_zone.dns: Read complete after 1s [id=Z0309285FKX769XC4J5C][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create
+[0m
+Terraform will perform the following actions:
+
+[1m  # aws_acm_certificate.jenkins-lb-https[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_acm_certificate" "jenkins-lb-https" {
+      [32m+[0m [0m[1m[0marn[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mdomain_name[0m[0m               = "jenkins.cmcloudlab384.info"
+      [32m+[0m [0m[1m[0mdomain_validation_options[0m[0m = [
+          [32m+[0m [0m{
+              [32m+[0m [0mdomain_name           = "jenkins.cmcloudlab384.info"
+              [32m+[0m [0mresource_record_name  = (known after apply)
+              [32m+[0m [0mresource_record_type  = (known after apply)
+              [32m+[0m [0mresource_record_value = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mkey_algorithm[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mnot_after[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mnot_before[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mpending_renewal[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mrenewal_eligibility[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mrenewal_summary[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0msubject_alternative_names[0m[0m = [
+          [32m+[0m [0m"jenkins.cmcloudlab384.info",
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m                      = {
+          [32m+[0m [0m"Name" = "Jenkins-ACM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                  = {
+          [32m+[0m [0m"Name" = "Jenkins-ACM"
+        }
+      [32m+[0m [0m[1m[0mtype[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_emails[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_method[0m[0m         = "DNS"
+    }
+
+[1m  # aws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_acm_certificate_validation" "cert" {
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mvalidation_record_fqdns[0m[0m = (known after apply)
+    }
+
+[1m  # aws_instance.jenkins-master[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_instance" "jenkins-master" {
+      [32m+[0m [0m[1m[0mami[0m[0m                                  = (sensitive value)
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_core_count[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_stop[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_termination[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mebs_optimized[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mget_password_data[0m[0m                    = false
+      [32m+[0m [0m[1m[0mhost_id[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mhost_resource_group_arn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0miam_instance_profile[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0minstance_state[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0minstance_type[0m[0m                        = "t3.micro"
+      [32m+[0m [0m[1m[0mipv6_address_count[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_addresses[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m                             = "jenkins"
+      [32m+[0m [0m[1m[0mmonitoring[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0moutpost_arn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mpassword_data[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_group[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_partition_number[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_private_ips[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0msource_dest_check[0m[0m                    = true
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "jenkins_master_tf"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "jenkins_master_tf"
+        }
+      [32m+[0m [0m[1m[0mtenancy[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0muser_data[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_base64[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false
+      [32m+[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = (known after apply)
+
+      [32m+[0m [0mcapacity_reservation_specification {
+          [32m+[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = (known after apply)
+
+          [32m+[0m [0mcapacity_reservation_target {
+              [32m+[0m [0m[1m[0mcapacity_reservation_id[0m[0m                 = (known after apply)
+              [32m+[0m [0m[1m[0mcapacity_reservation_resource_group_arn[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mebs_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0msnapshot_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+
+      [32m+[0m [0menclave_options {
+          [32m+[0m [0m[1m[0menabled[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mephemeral_block_device {
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mno_device[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_name[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmaintenance_options {
+          [32m+[0m [0m[1m[0mauto_recovery[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmetadata_options {
+          [32m+[0m [0m[1m[0mhttp_endpoint[0m[0m               = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_tokens[0m[0m                 = (known after apply)
+          [32m+[0m [0m[1m[0minstance_metadata_tags[0m[0m      = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_interface {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_index[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_card_index[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m  = (known after apply)
+        }
+
+      [32m+[0m [0mprivate_dns_name_options {
+          [32m+[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhostname_type[0m[0m                        = (known after apply)
+        }
+
+      [32m+[0m [0mroot_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+    }
+
+[1m  # aws_instance.jenkins-worker-oregon[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_instance" "jenkins-worker-oregon" {
+      [32m+[0m [0m[1m[0mami[0m[0m                                  = (sensitive value)
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_core_count[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_stop[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mdisable_api_termination[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mebs_optimized[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mget_password_data[0m[0m                    = false
+      [32m+[0m [0m[1m[0mhost_id[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mhost_resource_group_arn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0miam_instance_profile[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0minstance_state[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0minstance_type[0m[0m                        = "t3.micro"
+      [32m+[0m [0m[1m[0mipv6_address_count[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_addresses[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m                             = "jenkins"
+      [32m+[0m [0m[1m[0mmonitoring[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0moutpost_arn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mpassword_data[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_group[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_partition_number[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_private_ips[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0msource_dest_check[0m[0m                    = true
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "jenkins_worker_tf_1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "jenkins_worker_tf_1"
+        }
+      [32m+[0m [0m[1m[0mtenancy[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0muser_data[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_base64[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false
+      [32m+[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = (known after apply)
+
+      [32m+[0m [0mcapacity_reservation_specification {
+          [32m+[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = (known after apply)
+
+          [32m+[0m [0mcapacity_reservation_target {
+              [32m+[0m [0m[1m[0mcapacity_reservation_id[0m[0m                 = (known after apply)
+              [32m+[0m [0m[1m[0mcapacity_reservation_resource_group_arn[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mebs_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0msnapshot_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+
+      [32m+[0m [0menclave_options {
+          [32m+[0m [0m[1m[0menabled[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mephemeral_block_device {
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mno_device[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_name[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmaintenance_options {
+          [32m+[0m [0m[1m[0mauto_recovery[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmetadata_options {
+          [32m+[0m [0m[1m[0mhttp_endpoint[0m[0m               = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_tokens[0m[0m                 = (known after apply)
+          [32m+[0m [0m[1m[0minstance_metadata_tags[0m[0m      = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_interface {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_index[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_card_index[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m  = (known after apply)
+        }
+
+      [32m+[0m [0mprivate_dns_name_options {
+          [32m+[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhostname_type[0m[0m                        = (known after apply)
+        }
+
+      [32m+[0m [0mroot_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mthroughput[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+    }
+
+[1m  # aws_internet_gateway.igw[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "igw" {
+      [32m+[0m [0m[1m[0marn[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m   = (known after apply)
+    }
+
+[1m  # aws_internet_gateway.igw-oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "igw-oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m   = (known after apply)
+    }
+
+[1m  # aws_key_pair.master-key[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_key_pair" "master-key" {
+      [32m+[0m [0m[1m[0marn[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mfingerprint[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m        = "jenkins"
+      [32m+[0m [0m[1m[0mkey_name_prefix[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mkey_pair_id[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mkey_type[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCy6SEoM7TYTegJ21S2T8kchV2Q6yCYEkY/GfB3bkjaq/VvBEze3DrrT+6MbHwnr17A1xJz2atVHh6id6eJ8awUZ8MFR1XXlIIOLCE/R9Pp1YS88vTgRoVcXHgCpcqPGInJBFS7LWkYWgeYS58nSzP0wCzxIpu5+gSQi07ERv/Hv4A+CXAlxFh572aPw461GTCZere7rfVeWgVoyDti8gvNwCqTnVDIZYme/Ok/sp/ni0QBxl3ArMq3+TZcVl+4ymsHl3kAtLmsvniDgmHfsdW2zEhDMnxptbgWZEb+q3ClXPFBCyKA0rDR/J1lPZYIw8Njsvvb5AhnWGM9pgOHRUc0gSKo9q7mvw20enkl1tsTZT4DvNpLeqjpCDehEEmYb01zTFxO85XJUdYpNJMnfdbLCT0k6goZ3HN70Sb7nPjwcxX5Fw1KNzDIanLpko6PyGgr108fG3n3TMFVDnDoPePPdJvC3lR86mnSnL0kxPLQ9/UQ3eARcl83ucMQ8FWCnHM= wert@DESKTOP-3O7KG9K"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_key_pair.worker-key[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_key_pair" "worker-key" {
+      [32m+[0m [0m[1m[0marn[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mfingerprint[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m        = "jenkins"
+      [32m+[0m [0m[1m[0mkey_name_prefix[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mkey_pair_id[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mkey_type[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCy6SEoM7TYTegJ21S2T8kchV2Q6yCYEkY/GfB3bkjaq/VvBEze3DrrT+6MbHwnr17A1xJz2atVHh6id6eJ8awUZ8MFR1XXlIIOLCE/R9Pp1YS88vTgRoVcXHgCpcqPGInJBFS7LWkYWgeYS58nSzP0wCzxIpu5+gSQi07ERv/Hv4A+CXAlxFh572aPw461GTCZere7rfVeWgVoyDti8gvNwCqTnVDIZYme/Ok/sp/ni0QBxl3ArMq3+TZcVl+4ymsHl3kAtLmsvniDgmHfsdW2zEhDMnxptbgWZEb+q3ClXPFBCyKA0rDR/J1lPZYIw8Njsvvb5AhnWGM9pgOHRUc0gSKo9q7mvw20enkl1tsTZT4DvNpLeqjpCDehEEmYb01zTFxO85XJUdYpNJMnfdbLCT0k6goZ3HN70Sb7nPjwcxX5Fw1KNzDIanLpko6PyGgr108fG3n3TMFVDnDoPePPdJvC3lR86mnSnL0kxPLQ9/UQ3eARcl83ucMQ8FWCnHM= wert@DESKTOP-3O7KG9K"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_lb.application-lb[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb" "application-lb" {
+      [32m+[0m [0m[1m[0marn[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0marn_suffix[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdesync_mitigation_mode[0m[0m     = "defensive"
+      [32m+[0m [0m[1m[0mdns_name[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mdrop_invalid_header_fields[0m[0m = false
+      [32m+[0m [0m[1m[0menable_deletion_protection[0m[0m = false
+      [32m+[0m [0m[1m[0menable_http2[0m[0m               = true
+      [32m+[0m [0m[1m[0menable_waf_fail_open[0m[0m       = false
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0midle_timeout[0m[0m               = 60
+      [32m+[0m [0m[1m[0minternal[0m[0m                   = false
+      [32m+[0m [0m[1m[0mip_address_type[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_type[0m[0m         = "application"
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "jenkins-lb"
+      [32m+[0m [0m[1m[0mpreserve_host_header[0m[0m       = false
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0msubnets[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                       = {
+          [32m+[0m [0m"Name" = "Jenkins-LB"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                   = {
+          [32m+[0m [0m"Name" = "Jenkins-LB"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mzone_id[0m[0m                    = (known after apply)
+
+      [32m+[0m [0msubnet_mapping {
+          [32m+[0m [0m[1m[0mallocation_id[0m[0m        = (known after apply)
+          [32m+[0m [0m[1m[0mipv6_address[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0moutpost_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mprivate_ipv4_address[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0msubnet_id[0m[0m            = (known after apply)
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 443
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTPS"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = "ELBSecurityPolicy-2016-08"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m             = "forward"
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener-http[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener-http" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 80
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTP"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m  = "redirect"
+
+          [32m+[0m [0mredirect {
+              [32m+[0m [0m[1m[0mhost[0m[0m        = "#{host}"
+              [32m+[0m [0m[1m[0mpath[0m[0m        = "/#{path}"
+              [32m+[0m [0m[1m[0mport[0m[0m        = "443"
+              [32m+[0m [0m[1m[0mprotocol[0m[0m    = "HTTPS"
+              [32m+[0m [0m[1m[0mquery[0m[0m       = "#{query}"
+              [32m+[0m [0m[1m[0mstatus_code[0m[0m = "HTTP_301"
+            }
+        }
+    }
+
+[1m  # aws_lb_listener.jenkins-listener-https[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_listener" "jenkins-listener-https" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_arn[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mload_balancer_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m              = 443
+      [32m+[0m [0m[1m[0mprotocol[0m[0m          = "HTTPS"
+      [32m+[0m [0m[1m[0mssl_policy[0m[0m        = "ELBSecurityPolicy-2016-08"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = (known after apply)
+
+      [32m+[0m [0mdefault_action {
+          [32m+[0m [0m[1m[0morder[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m             = "forward"
+        }
+    }
+
+[1m  # aws_lb_target_group.app-lb-tg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "app-lb-tg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                = (known after apply)
+      [32m+[0m [0m[1m[0marn_suffix[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mconnection_termination[0m[0m             = false
+      [32m+[0m [0m[1m[0mderegistration_delay[0m[0m               = "300"
+      [32m+[0m [0m[1m[0mid[0m[0m                                 = (known after apply)
+      [32m+[0m [0m[1m[0mip_address_type[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mlambda_multi_value_headers_enabled[0m[0m = false
+      [32m+[0m [0m[1m[0mload_balancing_algorithm_type[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                               = "app-lb-tg"
+      [32m+[0m [0m[1m[0mport[0m[0m                               = 80
+      [32m+[0m [0m[1m[0mpreserve_client_ip[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                           = "HTTP"
+      [32m+[0m [0m[1m[0mprotocol_version[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mproxy_protocol_v2[0m[0m                  = false
+      [32m+[0m [0m[1m[0mslow_start[0m[0m                         = 0
+      [32m+[0m [0m[1m[0mtags[0m[0m                               = {
+          [32m+[0m [0m"Name" = "jenkins-target-group"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                           = {
+          [32m+[0m [0m"Name" = "jenkins-target-group"
+        }
+      [32m+[0m [0m[1m[0mtarget_type[0m[0m                        = "instance"
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                             = (known after apply)
+
+      [32m+[0m [0mhealth_check {
+          [32m+[0m [0m[1m[0menabled[0m[0m             = true
+          [32m+[0m [0m[1m[0mhealthy_threshold[0m[0m   = 3
+          [32m+[0m [0m[1m[0minterval[0m[0m            = 10
+          [32m+[0m [0m[1m[0mmatcher[0m[0m             = "200-299"
+          [32m+[0m [0m[1m[0mpath[0m[0m                = "/"
+          [32m+[0m [0m[1m[0mport[0m[0m                = "80"
+          [32m+[0m [0m[1m[0mprotocol[0m[0m            = "HTTP"
+          [32m+[0m [0m[1m[0mtimeout[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0munhealthy_threshold[0m[0m = 3
+        }
+
+      [32m+[0m [0mstickiness {
+          [32m+[0m [0m[1m[0mcookie_duration[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mcookie_name[0m[0m     = (known after apply)
+          [32m+[0m [0m[1m[0menabled[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m            = (known after apply)
+        }
+
+      [32m+[0m [0mtarget_failover {
+          [32m+[0m [0m[1m[0mon_deregistration[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mon_unhealthy[0m[0m      = (known after apply)
+        }
+    }
+
+[1m  # aws_lb_target_group_attachment.jenkins-master-attach[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "jenkins-master-attach" {
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mport[0m[0m             = 80
+      [32m+[0m [0m[1m[0mtarget_group_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtarget_id[0m[0m        = (known after apply)
+    }
+
+[1m  # aws_main_route_table_association.set-master-default-rt-assoc[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_main_route_table_association" "set-master-default-rt-assoc" {
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0moriginal_route_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                  = (known after apply)
+    }
+
+[1m  # aws_main_route_table_association.set-worker-default-rt-assoc[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_main_route_table_association" "set-worker-default-rt-assoc" {
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0moriginal_route_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                  = (known after apply)
+    }
+
+[1m  # aws_route53_record.cert_validation["jenkins.cmcloudlab384.info"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route53_record" "cert_validation" {
+      [32m+[0m [0m[1m[0mallow_overwrite[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mfqdn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mrecords[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mttl[0m[0m             = 60
+      [32m+[0m [0m[1m[0mtype[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mzone_id[0m[0m         = "Z0309285FKX769XC4J5C"
+    }
+
+[1m  # aws_route53_record.jenkins[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route53_record" "jenkins" {
+      [32m+[0m [0m[1m[0mallow_overwrite[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mfqdn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m            = "jenkins.cmcloudlab384.info"
+      [32m+[0m [0m[1m[0mtype[0m[0m            = "A"
+      [32m+[0m [0m[1m[0mzone_id[0m[0m         = "Z0309285FKX769XC4J5C"
+
+      [32m+[0m [0malias {
+          [32m+[0m [0m[1m[0mevaluate_target_health[0m[0m = true
+          [32m+[0m [0m[1m[0mname[0m[0m                   = (known after apply)
+          [32m+[0m [0m[1m[0mzone_id[0m[0m                = (known after apply)
+        }
+    }
+
+[1m  # aws_route_table.internet_route[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "internet_route" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "0.0.0.0/0"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = (known after apply)
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = ""
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "192.168.1.0/24"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = ""
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name" = "Master-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name" = "Master-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # aws_route_table.internet_route_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "internet_route_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "0.0.0.0/0"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = (known after apply)
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = ""
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcarrier_gateway_id         = ""
+              [32m+[0m [0mcidr_block                 = "10.0.1.0/24"
+              [32m+[0m [0mcore_network_arn           = ""
+              [32m+[0m [0mdestination_prefix_list_id = ""
+              [32m+[0m [0megress_only_gateway_id     = ""
+              [32m+[0m [0mgateway_id                 = ""
+              [32m+[0m [0minstance_id                = ""
+              [32m+[0m [0mipv6_cidr_block            = ""
+              [32m+[0m [0mlocal_gateway_id           = ""
+              [32m+[0m [0mnat_gateway_id             = ""
+              [32m+[0m [0mnetwork_interface_id       = ""
+              [32m+[0m [0mtransit_gateway_id         = ""
+              [32m+[0m [0mvpc_endpoint_id            = ""
+              [32m+[0m [0mvpc_peering_connection_id  = (known after apply)
+            },
+        ]
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name" = "Worker-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name" = "Worker-Region-RT"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # aws_security_group.jenkins-sg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "jenkins-sg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow TCP/8080 & TCP/22"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 22 from our public IP"
+              [32m+[0m [0mfrom_port        = 22
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 22
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"192.168.1.0/24",
+                ]
+              [32m+[0m [0mdescription      = "allow traffic from us-west-2"
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = []
+              [32m+[0m [0mdescription      = "allow anyone on port 8080"
+              [32m+[0m [0mfrom_port        = 80
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = (known after apply)
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 80
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "jenkins-sg"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_security_group.jenkins-sg-oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "jenkins-sg-oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow TCP/8080 & TCP/22"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 22 from our public IP"
+              [32m+[0m [0mfrom_port        = 22
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 22
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"10.0.1.0/24",
+                ]
+              [32m+[0m [0mdescription      = "Allow traffic from us-east-1"
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "jenkins-sg-oregon"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_security_group.lb-sg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "lb-sg" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "Allow 443 and traffic to Jenkins SG"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = ""
+              [32m+[0m [0mfrom_port        = 0
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "-1"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 0
+            },
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = [
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 443 from anywhere"
+              [32m+[0m [0mfrom_port        = 443
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 443
+            },
+          [32m+[0m [0m{
+              [32m+[0m [0mcidr_blocks      = [
+                  [32m+[0m [0m"0.0.0.0/0",
+                ]
+              [32m+[0m [0mdescription      = "Allow 80 from anywhere for redirection"
+              [32m+[0m [0mfrom_port        = 80
+              [32m+[0m [0mipv6_cidr_blocks = []
+              [32m+[0m [0mprefix_list_ids  = []
+              [32m+[0m [0mprotocol         = "tcp"
+              [32m+[0m [0msecurity_groups  = []
+              [32m+[0m [0mself             = false
+              [32m+[0m [0mto_port          = 80
+            },
+        ]
+      [32m+[0m [0m[1m[0mname[0m[0m                   = "lb-sg"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_1[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_1" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1a"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "10.0.1.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_1_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_1_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = (known after apply)
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "192.168.1.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_subnet.subnet_2[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "subnet_2" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1b"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "10.0.2.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # aws_vpc.vpc_master[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc" "vpc_master" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                           = "10.0.0.0/16"
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_security_group_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mdhcp_options_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = true
+      [32m+[0m [0m[1m[0menable_dns_support[0m[0m                   = true
+      [32m+[0m [0m[1m[0menable_network_address_usage_metrics[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default"
+      [32m+[0m [0m[1m[0mipv6_association_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_network_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mmain_route_table_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "master-vpc-jenkins"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "master-vpc-jenkins"
+        }
+    }
+
+[1m  # aws_vpc.vpc_master_oregon[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc" "vpc_master_oregon" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                           = "192.168.0.0/16"
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_security_group_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mdhcp_options_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = true
+      [32m+[0m [0m[1m[0menable_dns_support[0m[0m                   = true
+      [32m+[0m [0m[1m[0menable_network_address_usage_metrics[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default"
+      [32m+[0m [0m[1m[0mipv6_association_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_network_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mmain_route_table_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name" = "worker-vpc-jenkins"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name" = "worker-vpc-jenkins"
+        }
+    }
+
+[1m  # aws_vpc_peering_connection.useast1-uswest2[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc_peering_connection" "useast1-uswest2" {
+      [32m+[0m [0m[1m[0maccept_status[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_owner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_region[0m[0m   = "us-west-2"
+      [32m+[0m [0m[1m[0mpeer_vpc_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m        = (known after apply)
+
+      [32m+[0m [0maccepter {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mrequester {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # aws_vpc_peering_connection_accepter.accept_peering[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc_peering_connection_accepter" "accept_peering" {
+      [32m+[0m [0m[1m[0maccept_status[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mauto_accept[0m[0m               = true
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_owner_id[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_region[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mpeer_vpc_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_peering_connection_id[0m[0m = (known after apply)
+
+      [32m+[0m [0maccepter {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mrequester {
+          [32m+[0m [0m[1m[0mallow_classic_link_to_remote_vpc[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallow_remote_vpc_dns_resolution[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mallow_vpc_to_remote_classic_link[0m[0m = (known after apply)
+        }
+    }
+
+[0m[1mPlan:[0m 30 to add, 0 to change, 0 to destroy.
+[0m[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mJenkins-Main-Node-Public-IP[0m[0m = (known after apply)
+  [32m+[0m [0m[1m[0mJenkins-Worker-Public-IPs[0m[0m   = (known after apply)
+  [32m+[0m [0m[1m[0mLB-DNS-NAME[0m[0m                 = (known after apply)
+[0m[1maws_key_pair.worker-key: Creating...[0m[0m
+[0m[1maws_vpc.vpc_master_oregon: Creating...[0m[0m
+[0m[1maws_key_pair.master-key: Creating...[0m[0m
+[0m[1maws_vpc.vpc_master: Creating...[0m[0m
+[0m[1maws_acm_certificate.jenkins-lb-https: Creating...[0m[0m
+[0m[1maws_key_pair.worker-key: Creation complete after 0s [id=jenkins][0m
+[0m[1maws_key_pair.master-key: Creation complete after 1s [id=jenkins][0m
+[0m[1maws_vpc.vpc_master_oregon: Still creating... [10s elapsed][0m[0m
+[0m[1maws_vpc.vpc_master: Still creating... [10s elapsed][0m[0m
+[0m[1maws_acm_certificate.jenkins-lb-https: Still creating... [10s elapsed][0m[0m
+[0m[1maws_acm_certificate.jenkins-lb-https: Creation complete after 11s [id=arn:aws:acm:us-east-1:384393252157:certificate/cba51523-bb92-42b6-bdc3-48b916710ffa][0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Creating...[0m[0m
+[0m[1maws_vpc.vpc_master_oregon: Creation complete after 11s [id=vpc-036393ae27c918462][0m
+[0m[1maws_internet_gateway.igw-oregon: Creating...[0m[0m
+[0m[1maws_subnet.subnet_1_oregon: Creating...[0m[0m
+[0m[1maws_security_group.jenkins-sg-oregon: Creating...[0m[0m
+[0m[1maws_internet_gateway.igw-oregon: Creation complete after 1s [id=igw-0389a2f876da7c64a][0m
+[0m[1maws_subnet.subnet_1_oregon: Creation complete after 1s [id=subnet-026830cbd4c4032db][0m
+[0m[1maws_security_group.jenkins-sg-oregon: Creation complete after 2s [id=sg-09d82192ef4c2e9a4][0m
+[0m[1maws_vpc.vpc_master: Creation complete after 13s [id=vpc-045f5b1912ad2c258][0m
+[0m[1maws_internet_gateway.igw: Creating...[0m[0m
+[0m[1maws_subnet.subnet_2: Creating...[0m[0m
+[0m[1maws_vpc_peering_connection.useast1-uswest2: Creating...[0m[0m
+[0m[1maws_subnet.subnet_1: Creating...[0m[0m
+[0m[1maws_lb_target_group.app-lb-tg: Creating...[0m[0m
+[0m[1maws_security_group.lb-sg: Creating...[0m[0m
+[0m[1maws_internet_gateway.igw: Creation complete after 1s [id=igw-04a86bb5752869cff][0m
+[0m[1maws_subnet.subnet_1: Creation complete after 1s [id=subnet-0d379e0772d2c14dc][0m
+[0m[1maws_subnet.subnet_2: Creation complete after 1s [id=subnet-01abfd4714f9c8c5d][0m
+[0m[1maws_lb_target_group.app-lb-tg: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1][0m
+[0m[1maws_vpc_peering_connection.useast1-uswest2: Creation complete after 3s [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_vpc_peering_connection_accepter.accept_peering: Creating...[0m[0m
+[0m[1maws_route_table.internet_route_oregon: Creating...[0m[0m
+[0m[1maws_route_table.internet_route: Creating...[0m[0m
+[0m[1maws_security_group.lb-sg: Creation complete after 3s [id=sg-04dff70758ca50177][0m
+[0m[1maws_lb.application-lb: Creating...[0m[0m
+[0m[1maws_security_group.jenkins-sg: Creating...[0m[0m
+[0m[1maws_route_table.internet_route_oregon: Creation complete after 1s [id=rtb-0990909eb51bb5f51][0m
+[0m[1maws_main_route_table_association.set-worker-default-rt-assoc: Creating...[0m[0m
+[0m[1maws_main_route_table_association.set-worker-default-rt-assoc: Creation complete after 0s [id=rtbassoc-09497e961eeca04ee][0m
+[0m[1maws_route_table.internet_route: Creation complete after 2s [id=rtb-0d79fafda4b06ea30][0m
+[0m[1maws_main_route_table_association.set-master-default-rt-assoc: Creating...[0m[0m
+[0m[1maws_main_route_table_association.set-master-default-rt-assoc: Creation complete after 0s [id=rtbassoc-07af5fc7e78457251][0m
+[0m[1maws_vpc_peering_connection_accepter.accept_peering: Creation complete after 3s [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_security_group.jenkins-sg: Creation complete after 3s [id=sg-0aa67724d50fa89e4][0m
+[0m[1maws_instance.jenkins-master: Creating...[0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Provisioning with 'local-exec'...[0m[0m
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mExecuting: ["/bin/sh" "-c" "aws --profile default ec2 wait instance-status-ok --region us-east-1 --instance-ids i-0da9cc61cba23781c\nansible-playbook --extra-vars 'passed_in_hosts=tag_Name_jenkins_master_tf' ansible_templates/jenkins-master-sample.yml\n"]
+[0m[1maws_lb.application-lb: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Creation complete after 50s [id=Z0309285FKX769XC4J5C__83403d384ef20592f4e637755af3a9fd.jenkins.cmcloudlab384.info._CNAME][0m
+[0m[1maws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"]: Creating...[0m[0m
+[0m[1maws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"]: Creation complete after 1s [id=2023-01-01 23:56:21.456 +0000 UTC][0m
+[0m[1maws_lb.application-lb: Still creating... [50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [50s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m0s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m10s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m20s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m30s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m40s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [1m50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [1m50s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [2m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m0s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Still creating... [2m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m10s elapsed][0m[0m
+[0m[1maws_lb.application-lb: Creation complete after 2m13s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:loadbalancer/app/jenkins-lb/b9bca5c2e1b3c9d4][0m
+[0m[1maws_route53_record.jenkins: Creating...[0m[0m
+[0m[1maws_lb_listener.jenkins-listener-https: Creating...[0m[0m
+[0m[1maws_lb_listener.jenkins-listener: Creating...[0m[0m
+[0m[1maws_lb_listener.jenkins-listener-http: Creating...[0m[0m
+[0m[1maws_lb_listener.jenkins-listener-https: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_lb_listener.jenkins-listener-http: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/dbd0fd9c0dd42d09][0m
+[0m[1maws_lb_listener.jenkins-listener: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m20s elapsed][0m[0m
+[0m[1maws_route53_record.jenkins: Still creating... [11s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m30s elapsed][0m[0m
+[0m[1maws_route53_record.jenkins: Still creating... [21s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m40s elapsed][0m[0m
+[0m[1maws_route53_record.jenkins: Still creating... [31s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [2m50s elapsed][0m[0m
+[0m[1maws_route53_record.jenkins: Still creating... [41s elapsed][0m[0m
+[0m[1maws_route53_record.jenkins: Creation complete after 41s [id=Z0309285FKX769XC4J5C_jenkins.cmcloudlab384.info_A][0m
+[0m[1maws_instance.jenkins-master: Still creating... [3m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [3m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [3m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [3m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master: Still creating... [3m40s elapsed][0m[0m
+
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mPLAY [tag_Name_jenkins_master_tf] **********************************************
+
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mTASK [Gathering Facts] *********************************************************
+[0m[1maws_instance.jenkins-master: Still creating... [3m50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mok: [34.238.240.90]
+
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mTASK [install httpd] ***********************************************************
+[0m[1maws_instance.jenkins-master: Still creating... [4m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mchanged: [34.238.240.90]
+
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mTASK [Start and Enable Apache] *************************************************
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mchanged: [34.238.240.90]
+
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0mPLAY RECAP *********************************************************************
+[0m[1maws_instance.jenkins-master (local-exec):[0m [0m34.238.240.90              : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[0m[1maws_instance.jenkins-master: Creation complete after 4m5s [id=i-0da9cc61cba23781c][0m
+[0m[1maws_lb_target_group_attachment.jenkins-master-attach: Creating...[0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Creating...[0m[0m
+[0m[1maws_lb_target_group_attachment.jenkins-master-attach: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1-20230102000023458100000003][0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Provisioning with 'local-exec'...[0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mExecuting: ["/bin/sh" "-c" "aws --profile default ec2 wait instance-status-ok --region us-west-2 --instance-ids i-0d84ea1316b270792\nansible-playbook --extra-vars 'passed_in_hosts=tag_Name_jenkins_worker_tf_1' ansible_templates/jenkins-worker-sample.yml\n"]
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [3m10s elapsed][0m[0m
+
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mPLAY [tag_Name_jenkins_worker_tf_1] ********************************************
+
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mTASK [Gathering Facts] *********************************************************
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mok: [18.246.61.221]
+
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mTASK [install jq, JSON parser] *************************************************
+[0m[1maws_instance.jenkins-worker-oregon[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mchanged: [18.246.61.221]
+
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0mPLAY RECAP *********************************************************************
+[0m[1maws_instance.jenkins-worker-oregon[0] (local-exec):[0m [0m18.246.61.221              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[0m[1maws_instance.jenkins-worker-oregon[0]: Creation complete after 3m23s [id=i-0d84ea1316b270792][0m
+[0m[1m[32m
+Apply complete! Resources: 30 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mJenkins-Main-Node-Public-IP = "34.238.240.90"
+Jenkins-Worker-Public-IPs = {
+  "i-0d84ea1316b270792" = "18.246.61.221"
+}
+LB-DNS-NAME = "jenkins-lb-1369365276.us-east-1.elb.amazonaws.com"
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mDuplicate output definition[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on outputs.tf line 24:
+[31m│[0m [0m  24: [4moutput "Jenkins-Main-Node-Public-IP"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mAn output named "Jenkins-Main-Node-Public-IP" was already defined at
+[31m│[0m [0moutputs.tf:1,1-37. Output names must be unique within a module.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mDuplicate output definition[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on outputs.tf line 30:
+[31m│[0m [0m  30: [4moutput "Jenkins-Worker-Public-IPs"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mAn output named "Jenkins-Worker-Public-IPs" was already defined at
+[31m│[0m [0moutputs.tf:5,1-35. Output names must be unique within a module.
+[31m╵[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Reading...[0m[0m
+[0m[1maws_key_pair.worker-key: Refreshing state... [id=jenkins][0m
+[0m[1maws_vpc.vpc_master_oregon: Refreshing state... [id=vpc-036393ae27c918462][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_route53_zone.dns: Reading...[0m[0m
+[0m[1maws_key_pair.master-key: Refreshing state... [id=jenkins][0m
+[0m[1maws_vpc.vpc_master: Refreshing state... [id=vpc-045f5b1912ad2c258][0m
+[0m[1mdata.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.azs: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1maws_internet_gateway.igw-oregon: Refreshing state... [id=igw-0389a2f876da7c64a][0m
+[0m[1maws_subnet.subnet_1_oregon: Refreshing state... [id=subnet-026830cbd4c4032db][0m
+[0m[1maws_security_group.jenkins-sg-oregon: Refreshing state... [id=sg-09d82192ef4c2e9a4][0m
+[0m[1mdata.aws_route53_zone.dns: Read complete after 1s [id=Z0309285FKX769XC4J5C][0m
+[0m[1maws_acm_certificate.jenkins-lb-https: Refreshing state... [id=arn:aws:acm:us-east-1:384393252157:certificate/cba51523-bb92-42b6-bdc3-48b916710ffa][0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Refreshing state... [id=Z0309285FKX769XC4J5C__83403d384ef20592f4e637755af3a9fd.jenkins.cmcloudlab384.info._CNAME][0m
+[0m[1maws_internet_gateway.igw: Refreshing state... [id=igw-04a86bb5752869cff][0m
+[0m[1maws_subnet.subnet_2: Refreshing state... [id=subnet-01abfd4714f9c8c5d][0m
+[0m[1maws_vpc_peering_connection.useast1-uswest2: Refreshing state... [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_subnet.subnet_1: Refreshing state... [id=subnet-0d379e0772d2c14dc][0m
+[0m[1maws_security_group.lb-sg: Refreshing state... [id=sg-04dff70758ca50177][0m
+[0m[1maws_lb_target_group.app-lb-tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1][0m
+[0m[1maws_vpc_peering_connection_accepter.accept_peering: Refreshing state... [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_route_table.internet_route: Refreshing state... [id=rtb-0d79fafda4b06ea30][0m
+[0m[1maws_route_table.internet_route_oregon: Refreshing state... [id=rtb-0990909eb51bb5f51][0m
+[0m[1maws_main_route_table_association.set-worker-default-rt-assoc: Refreshing state... [id=rtbassoc-09497e961eeca04ee][0m
+[0m[1maws_security_group.jenkins-sg: Refreshing state... [id=sg-0aa67724d50fa89e4][0m
+[0m[1maws_lb.application-lb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:loadbalancer/app/jenkins-lb/b9bca5c2e1b3c9d4][0m
+[0m[1maws_main_route_table_association.set-master-default-rt-assoc: Refreshing state... [id=rtbassoc-07af5fc7e78457251][0m
+[0m[1maws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"]: Refreshing state... [id=2023-01-01 23:56:21.456 +0000 UTC][0m
+[0m[1maws_instance.jenkins-master: Refreshing state... [id=i-0da9cc61cba23781c][0m
+[0m[1maws_route53_record.jenkins: Refreshing state... [id=Z0309285FKX769XC4J5C_jenkins.cmcloudlab384.info_A][0m
+[0m[1maws_lb_listener.jenkins-listener: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_lb_listener.jenkins-listener-https: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_lb_listener.jenkins-listener-http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/dbd0fd9c0dd42d09][0m
+[0m[1maws_lb_target_group_attachment.jenkins-master-attach: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1-20230102000023458100000003][0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Refreshing state... [id=i-0d84ea1316b270792][0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mOutput refers to sensitive values[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on outputs.tf line 6:
+[31m│[0m [0m   6: [4moutput "amiId-us-east-1"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mTo reduce the risk of accidentally exporting sensitive data that was
+[31m│[0m [0mintended to be only internal, Terraform requires that any root module
+[31m│[0m [0moutput containing sensitive data be explicitly marked as sensitive, to
+[31m│[0m [0mconfirm your intent.
+[31m│[0m [0m
+[31m│[0m [0mIf you do intend to export this data, annotate the output value as
+[31m│[0m [0msensitive by adding the following argument:
+[31m│[0m [0m    sensitive = true
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mOutput refers to sensitive values[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on outputs.tf line 10:
+[31m│[0m [0m  10: [4moutput "amiId-us-west-2"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mTo reduce the risk of accidentally exporting sensitive data that was
+[31m│[0m [0mintended to be only internal, Terraform requires that any root module
+[31m│[0m [0moutput containing sensitive data be explicitly marked as sensitive, to
+[31m│[0m [0mconfirm your intent.
+[31m│[0m [0m
+[31m│[0m [0mIf you do intend to export this data, annotate the output value as
+[31m│[0m [0msensitive by adding the following argument:
+[31m│[0m [0m    sensitive = true
+[31m╵[0m[0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Reading...[0m[0m
+[0m[1maws_key_pair.worker-key: Refreshing state... [id=jenkins][0m
+[0m[1maws_vpc.vpc_master_oregon: Refreshing state... [id=vpc-036393ae27c918462][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmiOregon: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1maws_internet_gateway.igw-oregon: Refreshing state... [id=igw-0389a2f876da7c64a][0m
+[0m[1maws_subnet.subnet_1_oregon: Refreshing state... [id=subnet-026830cbd4c4032db][0m
+[0m[1maws_security_group.jenkins-sg-oregon: Refreshing state... [id=sg-09d82192ef4c2e9a4][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Reading...[0m[0m
+[0m[1maws_key_pair.master-key: Refreshing state... [id=jenkins][0m
+[0m[1mdata.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mdata.aws_route53_zone.dns: Reading...[0m[0m
+[0m[1maws_vpc.vpc_master: Refreshing state... [id=vpc-045f5b1912ad2c258][0m
+[0m[1mdata.aws_ssm_parameter.linuxAmi: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mdata.aws_availability_zones.azs: Read complete after 1s [id=us-east-1][0m
+[0m[1mdata.aws_route53_zone.dns: Read complete after 1s [id=Z0309285FKX769XC4J5C][0m
+[0m[1maws_acm_certificate.jenkins-lb-https: Refreshing state... [id=arn:aws:acm:us-east-1:384393252157:certificate/cba51523-bb92-42b6-bdc3-48b916710ffa][0m
+[0m[1maws_vpc_peering_connection.useast1-uswest2: Refreshing state... [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_internet_gateway.igw: Refreshing state... [id=igw-04a86bb5752869cff][0m
+[0m[1maws_subnet.subnet_1: Refreshing state... [id=subnet-0d379e0772d2c14dc][0m
+[0m[1maws_subnet.subnet_2: Refreshing state... [id=subnet-01abfd4714f9c8c5d][0m
+[0m[1maws_lb_target_group.app-lb-tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1][0m
+[0m[1maws_security_group.lb-sg: Refreshing state... [id=sg-04dff70758ca50177][0m
+[0m[1maws_vpc_peering_connection_accepter.accept_peering: Refreshing state... [id=pcx-0fde79daa982e6a06][0m
+[0m[1maws_route_table.internet_route: Refreshing state... [id=rtb-0d79fafda4b06ea30][0m
+[0m[1maws_route_table.internet_route_oregon: Refreshing state... [id=rtb-0990909eb51bb5f51][0m
+[0m[1maws_main_route_table_association.set-worker-default-rt-assoc: Refreshing state... [id=rtbassoc-09497e961eeca04ee][0m
+[0m[1maws_main_route_table_association.set-master-default-rt-assoc: Refreshing state... [id=rtbassoc-07af5fc7e78457251][0m
+[0m[1maws_lb.application-lb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:loadbalancer/app/jenkins-lb/b9bca5c2e1b3c9d4][0m
+[0m[1maws_security_group.jenkins-sg: Refreshing state... [id=sg-0aa67724d50fa89e4][0m
+[0m[1maws_route53_record.cert_validation["jenkins.cmcloudlab384.info"]: Refreshing state... [id=Z0309285FKX769XC4J5C__83403d384ef20592f4e637755af3a9fd.jenkins.cmcloudlab384.info._CNAME][0m
+[0m[1maws_instance.jenkins-master: Refreshing state... [id=i-0da9cc61cba23781c][0m
+[0m[1maws_lb_listener.jenkins-listener-https: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_lb_listener.jenkins-listener: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/c78dcc8e877785aa][0m
+[0m[1maws_route53_record.jenkins: Refreshing state... [id=Z0309285FKX769XC4J5C_jenkins.cmcloudlab384.info_A][0m
+[0m[1maws_lb_listener.jenkins-listener-http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:listener/app/jenkins-lb/b9bca5c2e1b3c9d4/dbd0fd9c0dd42d09][0m
+[0m[1maws_acm_certificate_validation.cert["jenkins.cmcloudlab384.info"]: Refreshing state... [id=2023-01-01 23:56:21.456 +0000 UTC][0m
+[0m[1maws_lb_target_group_attachment.jenkins-master-attach: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:384393252157:targetgroup/app-lb-tg/90fed644dba90de1-20230102000023458100000003][0m
+[0m[1maws_instance.jenkins-worker-oregon[0]: Refreshing state... [id=i-0d84ea1316b270792][0m
+[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mJenkins-Main-Node-Private-IP[0m[0m = "10.0.1.161"
+  [32m+[0m [0m[1m[0mJenkins-Worker-Private-IPs[0m[0m   = {
+      [32m+[0m [0mi-0d84ea1316b270792 = "192.168.1.149"
+    }
+  [32m+[0m [0m[1m[0mamiId-us-east-1[0m[0m              = (sensitive value)
+  [32m+[0m [0m[1m[0mamiId-us-west-2[0m[0m              = (sensitive value)
+  [32m+[0m [0m[1m[0murl[0m[0m                          = "jenkins.cmcloudlab384.info"
+
+You can apply this plan to save these new output values to the Terraform
+state, without changing any real infrastructure.
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mJenkins-Main-Node-Private-IP = "10.0.1.161"
+Jenkins-Main-Node-Public-IP = "34.238.240.90"
+Jenkins-Worker-Private-IPs = {
+  "i-0d84ea1316b270792" = "192.168.1.149"
+}
+Jenkins-Worker-Public-IPs = {
+  "i-0d84ea1316b270792" = "18.246.61.221"
+}
+LB-DNS-NAME = "jenkins-lb-1369365276.us-east-1.elb.amazonaws.com"
+amiId-us-east-1 = <sensitive>
+amiId-us-west-2 = <sensitive>
+url = "jenkins.cmcloudlab384.info"
